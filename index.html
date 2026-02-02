@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube UI Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+
+</head>
+<body>
+    <!--header-->
+    <div class="header">
+        <div class="header-left">
+            <span class="material-symbols-outlined">menu</span>
+            <img src="https://t3.ftcdn.net/jpg/06/34/31/96/360_F_634319630_txtgmPLEEQ8o4zaxec2WKrLWUBqdBBQn.jpg">
+        </div>
+        <div class="header-search">
+            <form action="">
+                <input type="search" placeholder="search" >
+                <button>
+                    <span class="materials-icons"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg></span>
+                </button>
+            </form>
+            <div class="search-mic">
+                <span class="material-symbols-outlined">mic</span>
+            </div>
+
+        </div>
+        <div class="header-icons">
+            <span class="material-symbols-outlined"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M240-320h320v-128l160 128v-320L560-512v-128H240v320Zm-80 160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm0-80h640v-480H160v480Zm0-480v480-480Z"/></svg></span>
+            <span class="material-symbols-outlined">Notifications</span>
+            <span class="material-symbols-outlined">account_circle</span>
+        </div>
+        
+
+    </div>
+    <!--header ends-->
+
+    <!-- main body-->
+    <div class="main-body">
+        <div class="side-bar">
+            <div class="sidebar-categoty">
+                <div class="side-bar-categories">
+                  <i class="material-symbols-outlined">home</i>
+                 <span>Home</span>
+               </div>
+               <div class="side-bar-categories">
+                 <i class="material-symbols-outlined">subscriptions</i>
+                 <span>Subscriptions</span>
+               </div>
+               <div class="side-bar-categories">
+                 <i class="material-symbols-outlined">local_fire_department</i>
+                 <span>Trending Shorts</span>
+                </div>
+             </div>
+             <hr>
+        
+            
+
+          <div class="sidebar-categoty">
+            <div class="side-bar-categories">
+                <i class="material-symbols-outlined">history</i>
+                <span>History</span>
+            </div>
+            <div class="side-bar-categories">
+                <i class="material-symbols-outlined">playlist_play</i>
+                <span>Playlist</span>
+            </div>
+            <div class="side-bar-categories">
+                <i class="material-symbols-outlined">switch_account</i>
+                <span> Your Channel</span>
+            </div>
+            <div class="side-bar-categories">
+                <i class="material-symbols-outlined">video_library</i>
+                <span> Your Videos</span>
+            </div>
+            <div class="side-bar-categories">
+                <i class="material-symbols-outlined">lightbulb</i>
+                <span> Your Courses</span>
+            </div>
+            <div class="side-bar-categories">
+                <i class="material-symbols-outlined">schedule</i>
+                <span>Watchlater</span>
+            </div>
+            <div class="side-bar-categories">
+                <i class="material-symbols-outlined">thumb_up</i>
+                <span> Liked Videos</span>
+            </div>
+          </div>
+          <hr>
+
+           <div class="complaint">
+                <h4>Support</h4>
+                    <a href="complaint.html">Complaint</a><br>
+                    <a href="feedback.html">Feedback</a><br>
+                    <a href="contactform.html">ContactForm</a><br>
+                    <a href="uploadvideo.html">Upload Video</a>
+            </div>
+
+            
+        </div>
+
+<!--sidebarr ends-->
+      <div class="videos">
+        <div class="recommend">
+            <span>All</span>
+            <span>Podcast</span>
+            <span>Courses</span>
+            <span>Music</span>
+            <span>HTML</span>
+            <span>Motivations</span>
+            <span>Trending</span>
+            <span>Skills</span>
+            <span>Web3</span>
+            <span>Java</span>
+            <span>Python</span>
+            <span>Dbms</span>
+        </div>
+
+        <!-- Channel Info Card -->
+        <div class="channel-card" id="channelCard">
+  <span class="close-btn" onclick="hideChannelInfo()">✖</span>
+
+  <h3>Channel Information</h3>
+
+  <p class="label"><b>Channel Name:</b></p>
+  <p class="value" id="channelName"></p>
+
+  <p class="label"><b>Subscribers:</b></p>
+  <p class="value"><span id="subCount"></span></p>
+
+  <p class="label"><B>Status:</B></p>
+  <p class="value status" id="channelStatus"></p>
+
+  <button class="subscribe-btn" onclick="increaseSubscribers()">
+    Subscribe
+  </button>
+<!--functions-->
+  <p id="welcomeMsg" style="margin-top:10px; font-size:13px;"></p>
+
+<button onclick="toggleChannelStatus()" class="subscribe-btn" style="background:#065fd4;">
+  Toggle Status
+</button>
+<!--objects-->
+<hr style="margin:10px 0">
+
+<p><b>Category:</b> <span id="channelCategory"></span></p>
+
+<button class="subscribe-btn" onclick="changeCategory()" style="background:#f7b2b2;">
+  Change Category
+</button>
+<!--methods--><hr>
+<button class="subscribe-btn" onclick="channel.toggleStatus()" style="background:#0f9d58;">
+  Toggle Channel Status
+</button>
+
+<p id="methodResult" style="font-size:13px; margin-top:8px;"></p>
+<!--popup-->
+<hr style="margin:10px 0">
+
+<button class="subscribe-btn" onclick="confirmSubscription()" style="background:#ff9800;">
+  Confirm Subscribe
+</button>
+
+<button class="subscribe-btn" onclick="changeChannelName()" style="background:#673ab7;">
+  Update Channel Name
+</button>
+
+<p id="popupResult" style="font-size:13px; margin-top:8px;"></p>
+
+
+</div>
+
+        <!-- vedio strts-->
+         <div class="videos-container">
+            <div class="video">
+                <div class="video-thumnail">
+                    <img src="thumnail2.webp" height="200px">
+                </div>
+                <div class="video-detail">
+                    <div class="author">
+                        <img src="img1.jpg" height="50px">
+                    </div>
+                    <div class="title">
+                        <h3>About Dreams|Big Dreams</h3>
+                        <a href="#" >Dreams</a>
+                        <span>1m views .3weeks ago</span>
+                        <p class="channel-link" onclick="showChannelInfo()">Channel Info</p>
+                    </div>
+
+                </div>
+            </div>
+            <!--vedio end-->
+
+            <div class="video">
+                <div class="video-thumnail">
+                    <img src="thumnail4.jpg" height="200px">
+                </div>
+                <div class="video-detail">
+                    <div class="author">
+                        <img src="img2.jpg" height="50px">
+                    </div>
+                    <div class="title">
+                        <h3>Thumbnail Design Full Details</h3>
+                        <a href="#" >Thumbnails</a>
+                        <span>12m views .17weeks ago</span>
+                        <p class="channel-link" onclick="showWelcome()">Welcome</p>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="video">
+                <div class="video-thumnail">
+                    <img src="thumnail2.webp" height="200px">
+                </div>
+                <div class="video-detail">
+                    <div class="author">
+                        <img src="img1.jpg" height="50px">
+                    </div>
+                    <div class="title">
+                        <h3>About Dreams|Big Dreams</h3>
+                        <a href="#" >Dreams</a>
+                        <span>1m views .3weeks ago</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="video">
+                <div class="video-thumnail">
+                    <img src="thumnail5.webp" height="200px">
+                </div>
+                <div class="video-detail">
+                    <div class="author">
+                        <img src="img5.jpg" height="50px">
+                    </div>
+                    <div class="title">
+                        <h3> About 2025</h3>
+                        <a href="#" >2025</a>
+                        <span>1m views .3weeks ago</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="video">
+                <div class="video-thumnail">
+                    <img src="thumnail1.jpg" height="200px">
+                </div>
+                <div class="video-detail">
+                    <div class="author">
+                        <img src="img4.jpg" height="50px">
+                    </div>
+                    <div class="title">
+                        <h3>All About Beaches|Beaches Calm U More</h3>
+                        <a href="#" >Beach</a>
+                        <span>100m views .3hours ago</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="video">
+                <div class="video-thumnail">
+                    <img src="thumnail6.webp" height="200px">
+                </div>
+                <div class="video-detail">
+                    <div class="author">
+                        <img src="img5.jpg" height="50px">
+                    </div>
+                    <div class="title">
+                        <h3>About Dreams|Big Dreams</h3>
+                        <a href="#" >Dreams</a>
+                        <span>1m views .3weeks ago</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="video">
+                <div class="video-thumnail">
+                    <img src="thumnail2.webp" height="200px">
+                </div>
+                <div class="video-detail">
+                    <div class="author">
+                        <img src="img1.jpg" height="50px">
+                    </div>
+                    <div class="title">
+                        <h3>About Dreams|Big Dreams</h3>
+                        <a href="#" >Dreams</a>
+                        <span>1m views .3weeks ago</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="video">
+                <div class="video-thumnail">
+                    <img src="thumnail3.jpg" height="200px">
+                </div>
+                <div class="video-detail">
+                    <div class="author">
+                        <img src="img1.jpg" height="50px">
+                    </div>
+                    <div class="title">
+                        <h3>All About Trading</h3>
+                        <a href="#" >Trading</a>
+                        <span>540m views .1year ago</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="video">
+                <div class="video-thumnail">
+                    <img src="thumnail2.webp" height="200px">
+                </div>
+                <div class="video-detail">
+                    <div class="author">
+                        <img src="img1.jpg" height="50px">
+                    </div>
+                    <div class="title">
+                        <h3>About Dreams|Big Dreams</h3>
+                        <a href="#" >Dreams</a>
+                        <span>1m views .3weeks ago</span>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+         </div>
+
+
+      
+
+    </div>
+
+     <!-- channel information-->
+     <!--<div class="form-box">
+        <h3>Channel Information</h3>
+
+        <p><b>Channel Name:</b> <span id="channelName"></span></p>
+        <p><b>Subscribers:</b> <span id="subCount"></span></p>
+        <p><b>Status:</b> <span id="channelStatus"></span></p>
+        <button onclick="increaseSubscribers()">Subscribe</button>
+    </div>-->
+    
+  <script src="script.js"></script> 
+
+
+</body>
+
+</html>

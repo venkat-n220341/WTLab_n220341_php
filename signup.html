@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Signup</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>User Signup</h2>
+
+<form action="register.php" method="POST">
+
+<!--  Sign In form -->
+<div id="loginOverlay" class="login-overlay">
+  <div class="login-card">
+
+    <h1>Welcome</h1>
+    <p class="subtitle">Sign up to start your journey</p>
+
+    <div class="input-group">
+      <label>User Name</label>
+      <input type="text" placeholder="venkat" name="username">
+    </div>
+
+    <div class="input-group">
+      <label>Email Address</label>
+      <input type="email" placeholder="your.email@example.com" name="email">
+    </div>
+
+    <div class="input-group password-box">
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Enter your password" name="password">
+      <span class="toggle-eye" onclick="togglePassword()">👁️</span>
+    </div>
+
+    <div class="options">
+      <label class="remember">
+        <input type="checkbox"> Remember me
+      </label>
+    </div>
+
+    <button class="signin-btn" onclick="login()">Sign In</button>
+
+    <div>
+        <p> Already have an account <a href="login.html">Login</a> Here</a></p>
+    </div>
+
+  </div>
+</div>
