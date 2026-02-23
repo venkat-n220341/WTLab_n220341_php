@@ -1,14 +1,9 @@
 <?php
-/*  GLOBAL VARIABLE  */
-$conn = mysqli_connect("localhost", "root", "", "usedb");
-
-/* die() → stop execution if DB fails */
-if (!$conn) {
-  die("Database connection failed");
-}
+/*  MONGODB CONNECTION  */
+require_once 'db_config.php';
 
 /*FUNCTION WITH LOCAL VARIABLES */
-function registerUser($conn) {
+function registerUser($usersCollection) {
 
   /* static variable */
   static $count = 0;
@@ -19,20 +14,41 @@ function registerUser($conn) {
   $email    = (string) $_POST['email'];    // string
   $password = (string) $_POST['password']; // string
   $success  = false;                       // boolean
-  echo $username;
 
-  $query = "INSERT INTO php_verification (username, email, password)
-            VALUES ('$username', '$email', '$password')";
+  try {
+    // Check if email already exists
+    $existingUser = $usersCollection->findOne(['email' => $email]);
+    
+    if ($existingUser !== null) {
+      print "Registration Failed (Email already exists)";
+      return $success;
+    }
 
-  if (mysqli_query($conn, $query)) {
-    // $success = true;
-    // print "Registration Successful<br>";
-    // print "Registrations in this request: $count";
-    header("Location: login.html");
-  } else {
-    print "Registration Failed (Email may already exist)";
+    // Insert new user into MongoDB
+    $result = $usersCollection->insertOne([
+      'username' => $username,
+      'email' => $email,
+      'password' => $password,
+      'created_at' => new \MongoDB\BSON\UTCDateTime(time() * 1000)
+    ]);
+
+    if ($result->getInsertedId()) {
+      echo "Registration Successful<br>";
+      echo "User ID: " . $result->getInsertedId() . "<br>";
+      echo "Registrations in this session: $count";
+      
+      // Redirect to login after 2 seconds
+      header("refresh:2;url=login.html");
+    } else {
+      print "Registration Failed";
+    }
+  } catch (\Exception $e) {
+    die("Registration Error: " . $e->getMessage());
   }
+
+  return $success;
 }
-registerUser($conn);
-mysqli_close($conn);
+
+session_start();
+registerUser($usersCollection);
 ?>

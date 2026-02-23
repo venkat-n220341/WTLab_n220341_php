@@ -1,0 +1,17 @@
+{
+    "name": "venky/php_you-tube_clone",
+    "autoload": {
+        "psr-4": {
+            "Venky\\PhpYouTubeClone\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "venkat",
+            "email": "n220341@rguktn.ac.in"
+        }
+    ],
+    "require": {
+        "mongodb/mongodb": "^2.2"
+    }
+}
